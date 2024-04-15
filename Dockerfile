@@ -1,4 +1,6 @@
-FROM nginx
-
-COPY . /etc/nginx/html/
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+FROM python:3.8-slim
+WORKDIR /app
+COPY . /app
+RUN pip install -r requirements.txt 
+EXPOSE 8080
+CMD ["python","app.py"]

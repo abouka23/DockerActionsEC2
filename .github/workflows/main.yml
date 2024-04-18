@@ -44,14 +44,14 @@ jobs:
         chmod 600 key.pem
     - name: Pull Docker image
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@your-ec2-instance-ip 'sudo docker pull bahhasekke176/cddemo:latest'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@18.133.32.162'sudo docker pull bahhasekke176/cddemo:latest'
     - name: Stop running container
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@your-ec2-instance-ip 'sudo docker stop cddemo || true'
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@your-ec2-instance-ip 'sudo docker rm cddemo || true'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@18.133.32.162 'sudo docker stop cddemo || true'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@18.133.32.162 'sudo docker rm cddemo || true'
     - name: Run new container
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@your-ec2-instance-ip 'sudo docker run -d --name cddemo -p 80:3000 bahhasekke176/cddemo:latest'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@18.133.32.162 'sudo docker run -d --name cddemo -p 80:3000 bahhasekke176/cddemo:latest'
           
 
     
